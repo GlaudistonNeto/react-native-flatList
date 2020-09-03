@@ -1,51 +1,48 @@
 import React, { useContext } from 'react';
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
-import PostContext from '../context/PostContext';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import BlogContext from '../context/BlogContext';
 
 const Home = () => {
-  const postages = useContext(PostContext); // postages prop from the context
+  const postages = useContext(BlogContext);
 
   return (
-    <View style={styles.containerOne}>
-      <View style={styles.containerTwo}>
-        <Text>Home Screen</Text>
-      </View>
-      <View style={styles.img}>
-        <FlatList
-          data={postages}
-          showsVerticalScrollIndicator={false}
-          keyExtractor={postages => postages.title}
-          renderItem={({ item }) => {
-            return (
-              // <View style={styles.imgTexts}>
-              //   <Text>{item.title}</Text>
-              // </View>
-              <View style={styles.imgPlacing}>
-                <View style={styles.imgBehavior}>
-                  <View style={styles.imgDescription}>
-                    <Text>Time Ago</Text>
-                    <Text>@Rusty</Text>
-                  </View>
-                  <View>
-                    <Image style={styles.img}
-                      source={{
-                        uri: 'https://source.unsplash.com/random/500x'
-                          + Math.floor((Math.random() * 800) + 500)
-                      }}
-                    />
-                  </View>
-                  <View style={styles.imgTexts}>
-                    <Text>User comment(description)...</Text>
-                    <Text style={styles.evaluationText}>
-                      Evaluation for the image
-                  </Text>
-                  </View>
-                </View>
+    <View>
+      <Text>Index Screen</Text>
+      <FlatList
+        data={postages}
+        keyExtractor={blogPost => blogPost.title}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.containerOne}>
+              <Text style={styles.containerTwo}>My Name</Text>
+              <View style={styles.img}>
+                <Text>{item.title}</Text>
               </View>
-            );
-          }}
-        />
-      </View>
+              <View style={styles.imgPlacing}>
+                <Text>The picture comes here</Text>
+                <Text>I Didn't put any picture</Text>
+                <Text>So I'm putting some texts</Text>
+                <Text>Maybe it can works for now</Text>
+                <Text>It's a tiring woork, but...</Text>
+                <Text>It's better than try to find</Text>
+                <Text>Some other solution yet...</Text>
+              </View>
+              <View style={styles.imgBehavior}>
+                <Text>donnot remember</Text>
+              </View>
+              <View style={styles.imgDescription}>
+                <Text>Owner description</Text>
+              </View>
+              <View style={styles.imgTexts}>
+                <Text>donnot remember</Text>
+              </View>
+              <View style={styles.evaluationText}>
+                <Text>Photo evaluation (starting from 5 stars)</Text>
+              </View>
+            </View>
+          );
+        }}
+      />
     </View>
   );
 };
