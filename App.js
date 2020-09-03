@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import Home from './src/screens/Home';
-import { BlogProvider } from './src/context/BlogContext'; //importing!!!
+import { PostProvider } from './src/context/PostContext'; //importing!!!
 import Search from './src/screens/Search';
 import Upload from './src/screens/Upload';
 import Activity from './src/screens/Activity';
@@ -92,8 +92,8 @@ const App = createAppContainer(navigator);
 
 export default () => {
   return (// setting the provider
-    <BlogProvider>
+    <PostProvider>
       <App />
-    </BlogProvider>
+    </PostProvider>
   );
 };

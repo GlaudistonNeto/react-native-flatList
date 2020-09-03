@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import BlogContext from '../context/BlogContext';
+import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
+import PostContext from '../context/PostContext';
 
 const Home = () => {
-  const postages = useContext(BlogContext);
+  const { data, addPhoto } = useContext(PostContext);
 
   return (
     <View>
-      <Text>Index Screen</Text>
+      <Text>Home Screen</Text>
+      <Button title="Add Photo" onPress={addPhoto} />
       <FlatList
-        data={postages}
-        keyExtractor={blogPost => blogPost.title}
+        data={data}
+        keyExtractor={imagePost => imagePost.title}
         renderItem={({ item }) => {
           return (
             <View style={styles.containerOne}>
