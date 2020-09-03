@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, Button, StyleSheet } from 'react-native';
 import PostContext from '../context/PostContext';
 
 const Home = () => {
@@ -18,27 +18,26 @@ const Home = () => {
               <Text style={styles.containerTwo}>My Name</Text>
               <View style={styles.img}>
                 <Text>{item.title}</Text>
-              </View>
-              <View style={styles.imgPlacing}>
-                <Text>The picture comes here</Text>
-                <Text>I Didn't put any picture</Text>
-                <Text>So I'm putting some texts</Text>
-                <Text>Maybe it can works for now</Text>
-                <Text>It's a tiring woork, but...</Text>
-                <Text>It's better than try to find</Text>
-                <Text>Some other solution yet...</Text>
-              </View>
-              <View style={styles.imgBehavior}>
-                <Text>donnot remember</Text>
-              </View>
-              <View style={styles.imgDescription}>
-                <Text>Owner description</Text>
-              </View>
-              <View style={styles.imgTexts}>
-                <Text>donnot remember</Text>
-              </View>
-              <View style={styles.evaluationText}>
-                <Text>Photo evaluation (starting from 5 stars)</Text>
+                <View style={styles.imgPlacing}>
+                  <Image style={styles.img}
+                    source={{
+                      uri: 'https://source.unsplash.com/random/500x'
+                        + Math.floor((Math.random() * 800) + 500)
+                    }}
+                  />
+                  <View style={styles.imgBehavior}>
+                    <Text>donnot remember</Text>
+                    <View style={styles.imgDescription}>
+                      <Text>Owner description</Text>
+                      <View style={styles.imgTexts}>
+                        <Text>donnot remember</Text>
+                        <View style={styles.evaluationText}>
+                          <Text>Photo evaluation (starting from 5 stars)</Text>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
               </View>
             </View>
           );
